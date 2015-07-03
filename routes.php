@@ -29,11 +29,11 @@ $routes = [
     '/' => 'home',
     '/list/{page}' => function($page, $arguments = []){
         $view = __DIR__.'/views/list.php';
-        product_list(intval($page), $view, $arguments);
+        product_list($page, $view, $arguments);
     },
     '/ajax-list/{page}' => function($page, $arguments){
         $view = __DIR__.'/views/items.php';
-        product_list(intval($page), $view, $arguments);
+        product_list($page, $view, $arguments);
     },
     '/add' => 'add_product',
     '/edit/{id}' => function($id, $arguments = []){
@@ -91,9 +91,8 @@ function home($arguments = [])
  */
 function product_list($page, $view, $arguments = [])
 {
-    if(!is_numeric($page)){
+    if(!is_numeric($page))
         renderNotFound();
-    }
     $products = pageQuery($page, $arguments);
     $last = end($products);
     $first = $products[0];

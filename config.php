@@ -13,6 +13,12 @@ $config = [
         'password' => 'sNY2hupJjH9yd5jKucDf',
         'database' => 'vk_test',
     ],
+//    'mysql' => [
+//        'host' => '127.0.0.1',
+//        'user' => 'root',
+//        'password' => 'mysqlroot',
+//        'database' => 'vk_test',
+//    ],
     'memcache' => [
         'port' => 11211,
         'host' => '127.0.0.1',

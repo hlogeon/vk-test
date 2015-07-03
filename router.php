@@ -14,7 +14,7 @@
  */
 require_once(__DIR__.'/routes.php');
 
-const PARAMETRIZED_URI_PARTS_COUNT = 4;
+const PARAMETRIZED_URI_PARTS_COUNT = 3;
 
 /**
  * Get request URIm compare to existing routes
@@ -51,7 +51,7 @@ function routeMatchParts($route, $uri)
 {
     $routeParts = explode('/', $route);
     $uriParts = explode('/', $uri);
-    if(count($routeParts) > count($uriParts))
+    if(count($routeParts) !== count($uriParts))
         return false;
     if($routeParts[1] !== $uriParts[1])
         return false;
