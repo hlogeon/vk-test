@@ -55,6 +55,7 @@ function routeMatchParts($route, $uri)
         return false;
     if($routeParts[1] !== $uriParts[1])
         return false;
+    var_dump(count($uriParts));
     if(count($uriParts) === PARAMETRIZED_URI_PARTS_COUNT)
         return $uriParts[2];
 
