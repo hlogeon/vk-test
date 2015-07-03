@@ -46,6 +46,8 @@ PHP (без ООП), mysql, memcached.
 Соответствует такой схеме БД:
 ```
 CREATE TABLE products( id INTEGER UNSIGNED AUTO_INCREMENT PRIMARY KEY, title VARCHAR(30), description TEXT, image VARCHAR(255), price DECIMAL(12, 2));
+
+ALTER TABLE products ADD KEY price_id_idx (price, id);
 ```
 
 #### пользовательские интерфейсы

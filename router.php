@@ -18,6 +18,8 @@ const PARAMETRIZED_URI_PARTS_COUNT = 3;
 function handleRoute()
 {
     global $routes;
+    if($_SERVER['REQUEST_METHOD'] !== 'POST' && $_SERVER['REQUEST_METHOD'] !== 'GET')
+        methodNotAllowed();
     foreach($routes as $route => $dispatcher){
         $match = routeMatchParts($route, $_SERVER['REQUEST_URI']);
         if($match === true){
@@ -62,9 +64,9 @@ function routeMatchParts($route, $uri)
 function callRouteWithParam($dispatcher, $param)
 {
     if(is_string($dispatcher) && is_callable($dispatcher)){
-        $dispatcher($param);
+        $dispatcher($param, parseQuery());
     } elseif(is_callable($dispatcher)){
-        call_user_func($dispatcher, $param);
+        call_user_func($dispatcher, $param, parseQuery());
     }
 }
 
@@ -75,15 +77,51 @@ function callRouteWithParam($dispatcher, $param)
  */
 function callRoute($dispatcher)
 {
+
     if(is_string($dispatcher) && is_callable($dispatcher)){
-        $dispatcher();
+        $dispatcher(parseQuery());
     } elseif(is_callable($dispatcher)){
-        call_user_func($dispatcher);
+        call_user_func($dispatcher, parseQuery());
     }
+}
+
+function parseQuery()
+{
+    $q = $_SERVER['QUERY_STRING'];
+    if(strlen($q) === 0)
+        return [];
+    $queryParts = explode('&', $q);
+    $params = [];
+    foreach($queryParts as $part){
+        $partDetails = explode('=', $part);
+        if(count($partDetails) === 2)
+            $params[$partDetails[0]] = $partDetails[1];
+        else
+            $params[$partDetails[0]] = null;
+    }
+    return $params;
 }
 
 
 function renderNotFound()
 {
 
+}
+
+
+function renderAjaxNotFound()
+{
+
+}
+
+
+function methodNotAllowed()
+{
+
+}
+
+function renderError($message)
+{
+    include(__DIR__.'/views/error.php');
+    die();
 }

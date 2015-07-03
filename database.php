@@ -24,14 +24,47 @@ function query($query){
     return $arrayResult;
 }
 
-function pageQuery($query, $page)
+function pageQuery($page, $params =[])
 {
     global $config;
-    $query .= ' LIMIT ' . intval($config['items_per_page']) . ' OFFSET '. intval($page);
+    $query = 'SELECT * FROM products ';
+    if(intval($page) !== 1){
+        if(array_key_exists('last', $params)){
+            $query .= 'WHERE id > '.$params['last'];
+        }
+    }
+    if(empty($params))
+        $query .= ' ORDER BY id desc';
+    else{
+        if(array_key_exists('order', $params)){
+            if($params['sort'] === 'price')
+                $query .= ' FORCE INDEX(price_id_idx)';
+            $query .= ' ORDER BY '.mysql_real_escape_string($params['sort']);
+        }
+        if(array_key_exists('sort', $params)){
+            if(strtolower($params['order']) === 'desc')
+                $query .= ' desc';
+        }
+    }
+    if(intval($page) === 1)
+        $query .= ' LIMIT ' . intval($config['items_per_page']);
+    else{
+        if(!array_key_exists('last', $params)){
+            $query .= ' LIMIT ' . intval($config['items_per_page']).' OFFSET '.(intval($page) - 1)*intval($config['items_per_page']);
+        }
+    }
     $result = mysql_query($query);
     $arrayResult = [];
     while($line = mysql_fetch_array($result, MYSQL_ASSOC)){
         $arrayResult[] = $line;
     }
+//    var_dump($arrayResult); die();
     return $arrayResult;
+}
+
+
+function deleteProduct($id)
+{
+    $id = intval($id);
+    mysql_query('DELETE from products WHERE id='.$id);
 }
