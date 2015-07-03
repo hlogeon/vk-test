@@ -94,7 +94,7 @@ function product_list($page, $view, $arguments = [])
     if(!is_numeric($page)){
         renderNotFound();
     }
-    var_dump($page); die();
+    var_dump($arguments); die();
     $products = pageQuery($page, $arguments);
     $last = end($products);
     $first = $products[0];
