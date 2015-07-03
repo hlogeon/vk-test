@@ -27,6 +27,9 @@ function handleRoute()
         methodNotAllowed();
     foreach($routes as $route => $dispatcher){
         $match = routeMatchParts($route, $_SERVER['REQUEST_URI']);
+        var_dump([
+            $match, $route, $_SERVER['REQUEST_URI'],
+        ]);
         if($match === true){
             callRoute($dispatcher);
             return;
@@ -51,7 +54,7 @@ function routeMatchParts($route, $uri)
 {
     $routeParts = explode('/', $route);
     $uriParts = explode('/', $uri);
-    if(count($routeParts) !== count($uriParts))
+    if(count($routeParts) > count($uriParts))
         return false;
     if($routeParts[1] !== $uriParts[1])
         return false;
