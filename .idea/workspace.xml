@@ -25,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="router.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="router.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/router.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.111111" vertical-offset="465" max-vertical-offset="2700">
-              <caret line="41" column="10" selection-start-line="0" selection-start-column="0" selection-end-line="144" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.24793388" vertical-offset="432" max-vertical-offset="2646">
+              <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -75,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8918919" vertical-offset="1035" max-vertical-offset="2556">
-              <caret line="74" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="136" selection-end-column="1" />
+            <state vertical-scroll-proportion="-3.4736843" vertical-offset="216" max-vertical-offset="2556">
+              <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
               <folding>
                 <marker date="1435920568414" expanded="true" signature="2024:2054" placeholder="SELECT * FRO..products..." />
               </folding>
@@ -159,8 +159,8 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/config.php" />
-        <option value="$PROJECT_DIR$/router.php" />
         <option value="$PROJECT_DIR$/routes.php" />
+        <option value="$PROJECT_DIR$/router.php" />
       </list>
     </option>
   </component>
@@ -613,21 +613,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.111111" vertical-offset="465" max-vertical-offset="2700">
-          <caret line="41" column="10" selection-start-line="0" selection-start-column="0" selection-end-line="144" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8918919" vertical-offset="1035" max-vertical-offset="2556">
-          <caret line="74" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="136" selection-end-column="1" />
+        <state vertical-scroll-proportion="-3.4736843" vertical-offset="216" max-vertical-offset="2556">
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
           <folding>
             <marker date="1435920568414" expanded="true" signature="2024:2054" placeholder="SELECT * FRO..products..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24793388" vertical-offset="432" max-vertical-offset="2646">
+          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
