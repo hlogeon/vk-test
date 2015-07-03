@@ -81,7 +81,7 @@ include(__DIR__.'/layout/header.php'); ?>
                 $('#items').html(response);
                 $('#prev-page').click(function(e){
                     e.preventDefault();
-//                    loader();
+                    console.log($(this).attr('link'));
                     sortRequest($(this).attr('link'));
                 });
                 $('#next-page').click(function(e){

@@ -6,6 +6,11 @@
  * Time: 8:40 PM
  *
  * Simple procedural routing
+ *
+ *
+ * This file supposed to be the heart of my application.
+ * It recognizes requests, find matching routes and call
+ * and call route dispatcher with params specified in queries
  */
 require_once(__DIR__.'/routes.php');
 
@@ -27,7 +32,7 @@ function handleRoute()
             return;
         }
         elseif($match !== false){
-            callRouteWithParam($dispatcher, $match);
+            callRouteWithParam($dispatcher, str_replace('?'.$_SERVER['QUERY_STRING'], '', $match));
             return;
         }
     }
@@ -85,6 +90,12 @@ function callRoute($dispatcher)
     }
 }
 
+/**
+ * Convert query string to associative array to simplify
+ * parameter binding
+ *
+ * @return array
+ */
 function parseQuery()
 {
     $q = $_SERVER['QUERY_STRING'];
@@ -103,23 +114,27 @@ function parseQuery()
 }
 
 
+/**
+ * Renders not not found page and stop application
+ */
 function renderNotFound()
 {
-
+    renderError('Ауч, страница не найдена, попробуйте поискать другую');
 }
 
-
-function renderAjaxNotFound()
-{
-
-}
-
-
+/**
+ * Renders not allowed page and stop application
+ */
 function methodNotAllowed()
 {
-
+    renderError('Метод '.$_SERVER['REQUEST_METHOD'].' недопустим для этого запроса, увы ;(');
 }
 
+/**
+ * Render error page with message specified and finish app execution
+ *
+ * @param string $message
+ */
 function renderError($message)
 {
     include(__DIR__.'/views/error.php');
