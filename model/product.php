@@ -82,7 +82,6 @@ function product_update($input)
         $i++;
     }
     $query .= $where;
-//    var_dump($query); die();
     if(mysql_query($query) !== false){
         $memcache->set($key, $input);
     }

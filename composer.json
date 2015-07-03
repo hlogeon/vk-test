@@ -1,0 +1,10 @@
+{
+    "name": "hlogeon/vk-testapp",
+    "authors": [
+        {
+            "name": "Andrey Degtyaruk",
+            "email": "hlogeon1@gmail.com"
+        }
+    ],
+    "require": {}
+}
