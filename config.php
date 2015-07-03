@@ -9,8 +9,8 @@
 $config = [
     'mysql' => [
         'host' => '127.0.0.1',
-        'user' => 'root',
-        'password' => 'mysqlroot',
+        'user' => 'forge',
+        'password' => 'sNY2hupJjH9yd5jKucDf',
         'database' => 'vk_test',
     ],
     'memcache' => [
